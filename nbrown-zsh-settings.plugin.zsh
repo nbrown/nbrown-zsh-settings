@@ -103,8 +103,6 @@ setopt HIST_BEEP                 # Beep when accessing non-existent history.
 # Variables
 #
 
-HISTSIZE=10000                   # The maximum number of events to save in the internal history.
-SAVEHIST=10000                   # The maximum number of events to save in the history file.
 
 #
 # Aliases
