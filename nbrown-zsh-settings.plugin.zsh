@@ -15,7 +15,6 @@ if [[ ${zsh_loaded_plugins[-1]} != */nbrown-zsh-settings && -z ${fpath[(r)${0:h}
 }
 # ls, the common ones I use a lot shortened for rapid fire usage
 
-
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
@@ -87,17 +86,31 @@ zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f
 # Options
 #
 
+# Changing directory options
+setopt AUTO_CD      # cd to a path without cd
+setopt AUTO_PUSHD   # make cd push the old dir onto the dir stack
+setopt PUSHD_IGNORE_DUPS
+
+# Completions
+setopt AUTO_LIST    # automatically list choices on ambiguous completion
+setopt AUTO_MENU    # automatically use menu completion after 2nd completion request
+setopt NO_LIST_BEEP # do not beep on ambiguous completion
+setopt LIST_PACKED  # display the list tightly packed
+
+
+# History
+setopt APPENDHISTORY
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
-setopt SHARE_HISTORY             # Share history between all sessions.
+setopt HIST_BEEP                 # Beep when accessing non-existent history.
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
-setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
-setopt HIST_IGNORE_ALL_DUPS      # Delete an old recorded event if a new event is a duplicate.
 setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
+setopt HIST_IGNORE_ALL_DUPS      # Delete an old recorded event if a new event is a duplicate.
+setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
 setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
 setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
-setopt HIST_BEEP                 # Beep when accessing non-existent history.
+setopt SHARE_HISTORY             # Share history between all sessions.
 
 #
 # Variables
