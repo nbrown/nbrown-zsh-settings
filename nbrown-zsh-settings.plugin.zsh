@@ -134,6 +134,8 @@ setopt CORRECT_ALL
 # case insensitive path-completion 
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 
+source ${0:A:h}/homebrew.plugin.zsh
+
 # Standard hash for plugins, to not pollute the namespace
 typeset -gA Plugins
 Plugins[NBROWN_ZSH_SETTINGS_DIR]="${0:h}"
